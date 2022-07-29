@@ -44,6 +44,8 @@ keymap("v", "p", '"_dP', opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "jj", "<ESC>", opts)
+keymap("i", "っｊ", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
