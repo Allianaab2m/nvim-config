@@ -1,4 +1,4 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "mason")
 if not status_ok then
   return
 end
@@ -21,6 +21,19 @@ local servers = {
 }
 
 lsp_installer.setup()
+
+local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+  return
+end
+
+mason_lspconfig.setup_handlers({function (server_name)
+  local opts = {
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities
+  }
+  lspconf[server_name].setup(opts)
+end})
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
