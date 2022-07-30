@@ -4,7 +4,6 @@ jobs:
   stylua:
     runs-on: ubuntu-latest
     steps:
-      - run: stylua
       - uses: actions/checkout@v2
       - uses: JohnnyMorganz/stylua-action@1.0.0
         with:
