@@ -76,12 +76,18 @@ M.on_attach = function(client, bufnr)
   -- if client.name == "tsserver" then
   --   client.resolved_capabilities.document_formatting = false
   -- end
+  local navic_ok, navic = pcall(require, "nvim-navic")
+  if not navic_ok then
+    return
+  end
+
   if client.name == "denols" then
     for _, client_ in pairs(active_clients) do
       if client_.name == "tsserver" then
         client_.stop()
       end
     end
+    navic.attach(client, bufnr)
   end
 
   if client.name == "tsserver" then
@@ -90,10 +96,12 @@ M.on_attach = function(client, bufnr)
         client.stop()
       end
     end
+    navic.attach(client, bufnr)
   end
 
   if client.name == "sumneko_lua" then
     client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
   end
 
   lsp_keymaps(bufnr)
@@ -101,6 +109,7 @@ M.on_attach = function(client, bufnr)
   if not status_ok then
     return
   end
+
   illuminate.on_attach(client)
 end
 
