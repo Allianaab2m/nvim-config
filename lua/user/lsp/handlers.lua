@@ -23,7 +23,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = true,
+    virtual_text = false, -- it's redundant due to lsp_line.nvim
     signs = {
       active = signs, -- show signs
     },
