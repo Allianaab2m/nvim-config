@@ -84,6 +84,9 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
   use { "j-hui/fidget.nvim" }
   use { "SmiteshP/nvim-navic" }
+  use { "Maan2003/lsp_lines.nvim", config = function ()
+    require("lsp_lines").setup()
+  end }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
