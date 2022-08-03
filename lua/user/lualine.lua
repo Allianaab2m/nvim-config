@@ -16,6 +16,35 @@ local isNvimtree = function ()
   return vim.bo.filetype ~= 'NvimTree'
 end
 
+local playerctl_title = function ()
+  local cmd = "playerctl metadata --format='{{ title }}'"
+  local handle = assert(io.popen(cmd, "r"), "")
+  local output = assert(handle:read('l'))
+  handle:close()
+  if (string.len(output) > 20) then
+    output = string.sub(output, 1, 20) .. "..."
+  end
+  return output
+end
+
+local playerctl_artist = function ()
+  local cmd = "playerctl metadata --format='{{ artist }}'"
+  local handle = assert(io.popen(cmd, "r"), "")
+  local output = assert(handle:read('l'))
+  handle:close()
+  if (string.len(output) > 20) then
+    output = string.sub(output, 1, 20) .. "..."
+  end
+  return output
+end
+
+local pctl_func = function ()
+  local title = playerctl_title()
+  local artist = playerctl_artist()
+
+  return title .. ' - ' .. artist
+end
+
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
@@ -74,6 +103,17 @@ local encoding = {
   cond = hide_in_width
 }
 
+local pctl = {
+  pctl_func,
+  cond = hide_in_width,
+  refresh = {
+    statusline = 1000
+  },
+  on_click = function ()
+    vim.cmd([[call system('playerctl play-pause')]])
+  end
+}
+
 lualine.setup {
   options = {
     globalstatus = true,
@@ -89,8 +129,9 @@ lualine.setup {
     lualine_b = {"branch"},
     lualine_c = { diagnostics, diff, {
       navic.get_location, cond = navic.is_available
-    } },
-    lualine_x = { lsp, encoding, filetype },
+      },
+    },
+    lualine_x = { pctl, lsp, encoding, filetype },
     lualine_y = { location },
     lualine_z = { "progress" },
   },
