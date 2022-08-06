@@ -55,6 +55,7 @@ keymap("v", ">", ">gv", opts)
 -- Plugins --
 keymap("n", "<leader>hl", require("lsp_lines").toggle, opts)
 keymap("n", ":", "<cmd>FineCmdline<CR>", {noremap = true})
+keymap("n", "/", "<cmd>SearchBoxIncSearch<CR>", { noremap = true})
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
