@@ -4,9 +4,9 @@ This config based on [LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-
 
 ## Demo
 
-[alpha-nvim](https://imgur.com/a/282ludR)
+![alpha-nvim](https://imgur.com/a/282ludR)
 
-[coding](https://imgur.com/yznedOU)
+![coding](https://imgur.com/yznedOU)
 
 Colorscheme: [oxocarbon.nvim](https://github.com/shaunsingh/oxocarbon.nvim)
 Startup Screen: [alpha-nvim](https://github.com/goolord/alpha-nvim)
