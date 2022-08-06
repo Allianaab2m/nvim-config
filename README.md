@@ -10,8 +10,11 @@ This config based on [LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-
 
 
 Colorscheme: [oxocarbon.nvim](https://github.com/shaunsingh/oxocarbon.nvim)
+
 Startup Screen: [alpha-nvim](https://github.com/goolord/alpha-nvim)
+
 Font: [PlemolJP35 Nerd Font](https://github.com/yuru7/PlemolJP)(same as [IBM Plex Mono](https://github.com/IBM/Plex))
+
 Term: [Wezterm](https://github.com/wez/wezterm)
 
 
