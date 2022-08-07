@@ -58,6 +58,7 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" }
   use { "VonHeikemen/fine-cmdline.nvim", requires = { "MunifTanjim/nui.nvim" } }
   use { "VonHeikemen/searchbox.nvim", requires = { "MunifTanjim/nui.nvim" }}
+  use { "phaazon/hop.nvim", branch="v2" }
 
   -- Colorschemes
   -- use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
