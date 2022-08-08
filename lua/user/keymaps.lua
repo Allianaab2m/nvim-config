@@ -57,7 +57,7 @@ keymap("n", "<leader>hl", require("lsp_lines").toggle, opts)
 keymap("n", ":", "<cmd>FineCmdline<CR>", {noremap = true})
 keymap("n", "/", "<cmd>SearchBoxIncSearch<CR>", { noremap = true})
 -- Hop.nvim 
-vim.api.nvim_set_keymap('', 'f', "<cmd>HopPattern<cr>", {})
+keymap('', 'f', "<cmd>HopPattern<cr>", {})
 
 
 -- NvimTree
