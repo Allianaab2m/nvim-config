@@ -53,11 +53,14 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Plugins --
-keymap("n", "<leader>hl", require("lsp_lines").toggle, opts)
-keymap("n", ":", "<cmd>FineCmdline<CR>", {noremap = true})
-keymap("n", "/", "<cmd>SearchBoxIncSearch<CR>", { noremap = true})
+-- Plugin-specific keymaps are set in lua/user/plugins.lua.
+-- This is to avoid crashes on first startup.
+
+-- keymap("n", "<leader>hl", lsp_lines.toggle, {silent = true})
+-- keymap("n", ":", "<cmd>FineCmdline<CR>", {noremap = true})
+-- keymap("n", "/", "<cmd>SearchBoxIncSearch<CR>", { noremap = true})
 -- Hop.nvim 
-keymap('', 'f', "<cmd>HopPattern<cr>", {})
+-- keymap('', 'f', "<cmd>HopPattern<cr>", {})
 
 
 -- NvimTree
